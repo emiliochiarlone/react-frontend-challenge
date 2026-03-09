@@ -1,0 +1,9 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.authLayout {
+  @include flex-center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, $primary 0%, $primary-light 100%);
+  padding: $spacing-md;
+}
