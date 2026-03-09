@@ -1,3 +1,8 @@
+/**
+ * Carousel de banners promocionales.
+ * Autoplay cada 5s, se pausa al hover. Navegación con flechas y dots.
+ * Primer banner se carga eager, el resto lazy.
+ */
 import { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { ShimmerImage } from '@/components/ShimmerImage'

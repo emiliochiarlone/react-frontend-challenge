@@ -24,10 +24,9 @@ npm test           # Tests con Vitest
 
 ### Credenciales de prueba
 
-| Email                 | Contraseña  |
-| --------------------- | ----------- |
-| `demo@fakestore.com`  | `demo1234`  |
-| `admin@fakestore.com` | `admin1234` |
+| Email                | Contraseña |
+| -------------------- | ---------- |
+| `demo@fakestore.com` | `demo1234` |
 
 ---
 
@@ -75,6 +74,7 @@ src/
 ├── services/         # FakeStore API + cache en memoria + traducciones
 ├── stores/           # Zustand (cart, auth, ui)
 ├── styles/           # Variables, mixins, reset SCSS
+├── test/             # Setup de tests (Vitest + RTL)
 ├── types/            # Interfaces TypeScript
 └── utils/            # Utilidades (formatPrice)
 ```
@@ -135,3 +135,19 @@ Estilos base para mobile, escalados con `min-width` breakpoints (`@tablet-up` �
 | Zustand selectors         | Cada componente suscribe solo a los valores que necesita |
 | `staleTime`               | Evita refetches innecesarios en TanStack Query           |
 | In-memory cache           | `productsCache` elimina requests duplicados              |
+
+### CRO (Conversion Rate Optimization)
+
+El proyecto aplica conceptos avanzados de **CRO** — la disciplina de optimizar la experiencia para maximizar la tasa de conversión (visitante → comprador):
+
+| Técnica CRO                       | Implementación                                                                            |
+| --------------------------------- | ----------------------------------------------------------------------------------------- |
+| **Reducción de fricción**         | Quick View modal permite ver producto y agregar al carrito sin cambiar de página          |
+| **Urgencia y escasez**            | Badges de "¡Últimas unidades!" (stock ≤ 5) y "¡Oferta!" incentivan la compra inmediata    |
+| **Carrito persistente**           | localStorage evita que el usuario pierda su selección al cerrar el navegador              |
+| **Perceived performance**         | Shimmer loading y lazy images eliminan la sensación de lentitud, reduciendo el abandono   |
+| **Búsqueda inteligente**          | Sugerencias con miniatura y precio (debounce 500ms) acortan el camino al producto deseado |
+| **Cross-sell / Related products** | Algoritmo de 3 niveles muestra productos relacionados, aumentando el ticket promedio      |
+| **URLs compartibles**             | Filtros en query params + Web Share API facilitan compartir catálogos filtrados           |
+| **Mobile-first responsive**       | Experiencia optimizada para el dispositivo con mayor tasa de tráfico                      |
+| **CTAs claros**                   | Botones "Agregar al carrito" visibles y accesibles en cards, detalle y quick view         |

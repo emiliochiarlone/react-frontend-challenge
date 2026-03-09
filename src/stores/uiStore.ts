@@ -1,3 +1,7 @@
+/**
+ * Store de estado de la UI: búsqueda, quick view modal y menú mobile.
+ * No persiste en localStorage (se resetea al recargar).
+ */
 import { create } from 'zustand'
 
 interface UIState {

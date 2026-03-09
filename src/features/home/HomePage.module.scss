@@ -3,11 +3,12 @@
 
 .home {
   &__carouselWrapper {
-    padding-top: calc($header-height + $spacing-xl);
+    padding-top: $spacing-xl;
     padding-bottom: $spacing-md;
 
     @include tablet-up {
       @include container;
+      padding-top: $spacing-xl;
     }
   }
 

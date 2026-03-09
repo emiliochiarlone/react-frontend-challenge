@@ -1,3 +1,9 @@
+/**
+ * Header principal de la aplicación.
+ * Incluye logo, barra de búsqueda con sugerencias, dropdown de categorías,
+ * navegación (catálogo, carrito, auth) y menú hamburguesa para mobile.
+ * Cierra dropdowns automáticamente al hacer click afuera.
+ */
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'

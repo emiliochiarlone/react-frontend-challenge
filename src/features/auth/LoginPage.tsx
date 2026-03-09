@@ -1,3 +1,8 @@
+/**
+ * Página de login con formulario de email/contraseña.
+ * Credenciales de demo: demo@fakestore.com / demo1234.
+ * Incluye validación inline y feedback de error.
+ */
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { login } from '@/services/api'

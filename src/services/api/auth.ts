@@ -1,3 +1,8 @@
+/**
+ * Servicio de autenticación mock.
+ * Simula login/perfil con un usuario demo hardcodeado.
+ * Credenciales: demo@fakestore.com / demo1234
+ */
 import type { AuthResponse, LoginCredentials, User } from '@/types'
 
 const demoUser: User = {
@@ -9,9 +14,9 @@ const demoUser: User = {
   address: 'Av. Corrientes 1234, CABA, Argentina',
 }
 
+/** Simula login — acepta demo@fakestore.com / demo1234 */
 export async function login(credentials: LoginCredentials): Promise<AuthResponse> {
-  // Simula login — acepta demo@fakestore.com / 123456
-  if (credentials.email === 'demo@fakestore.com' && credentials.password === '123456') {
+  if (credentials.email === 'demo@fakestore.com' && credentials.password === 'demo1234') {
     return {
       user: demoUser,
       token: `fake-jwt-${demoUser.id}-${Date.now()}`,

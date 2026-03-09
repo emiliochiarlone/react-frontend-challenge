@@ -1,6 +1,10 @@
+/**
+ * Servicio de reviews mock.
+ * Genera reviews determinísticas basadas en el productId usando templates.
+ * Solo genera reviews para los 20 productos de FakeStore API (IDs 1–20).
+ */
 import type { Review } from '@/types'
 
-// Reviews simuladas generadas determinísticamente por productId
 const reviewTemplates = [
   {
     userName: 'María G.',
@@ -27,7 +31,13 @@ const reviewTemplates = [
   { userName: 'Juan T.', comment: 'Segundo que compro, tan bueno como el primero.' },
 ]
 
+/**
+ * Genera reviews determinísticas para un producto.
+ * Solo genera reviews para IDs 1–20 (los que devuelve FakeStore API).
+ */
 function generateReviews(productId: number): Review[] {
+  if (productId < 1 || productId > 20) return []
+
   const count = ((productId * 3 + 1) % 4) + 1
   const reviews: Review[] = []
 

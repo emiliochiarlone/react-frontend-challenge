@@ -1,3 +1,8 @@
+/**
+ * Página de perfil del usuario autenticado.
+ * Muestra datos de la cuenta y botón de logout.
+ * Redirige a /login si no hay sesión activa.
+ */
 import { Navigate, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '@/stores'
 import styles from './ProfilePage.module.scss'

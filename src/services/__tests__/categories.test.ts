@@ -12,9 +12,9 @@ describe('categories service', () => {
   })
 
   it('returns a category by name', async () => {
-    const cat = await getCategoryByName('Gaming')
+    const cat = await getCategoryByName('Electrónica')
     expect(cat).not.toBeNull()
-    expect(cat!.name).toBe('Gaming')
+    expect(cat!.name).toBe('Electrónica')
   })
 
   it('returns null for non-existent category', async () => {

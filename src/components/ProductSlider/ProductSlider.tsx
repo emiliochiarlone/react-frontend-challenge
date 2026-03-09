@@ -1,3 +1,8 @@
+/**
+ * Slider horizontal de ProductCards con scroll nativo.
+ * Muestra flechas de navegación que se habilitan/deshabilitan
+ * según la posición de scroll actual.
+ */
 import { useRef, useState, useEffect, useCallback } from 'react'
 import { ProductCardContainer } from '@/components/ProductCard'
 import type { Product } from '@/types'

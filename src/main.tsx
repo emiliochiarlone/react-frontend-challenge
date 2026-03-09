@@ -1,3 +1,7 @@
+/**
+ * Punto de entrada de la aplicación FakeStore.
+ * Configura React Query (cache 5 min, 1 retry) y monta el router SPA.
+ */
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
@@ -8,7 +12,7 @@ import '@/styles/main.scss'
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 1000 * 60 * 5,
+      staleTime: 1000 * 60 * 5, // 5 minutos de cache
       retry: 1,
     },
   },

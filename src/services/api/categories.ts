@@ -1,7 +1,12 @@
+/**
+ * Servicio de categorías — consume FakeStore API.
+ * Cachea las categorías en memoria tras la primera consulta.
+ * Las traduce al español y les asigna imágenes representativas.
+ */
 import type { Category } from '@/types'
 import { translateCategory } from './translations'
 
-// Imágenes representativas para cada categoría de FakeStore API
+/** Imágenes representativas para cada categoría de FakeStore API */
 const categoryImages: Record<string, string> = {
   electronics: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=300&fit=crop',
   jewelery: 'https://images.unsplash.com/photo-1515562141589-67f0d569b610?w=400&h=300&fit=crop',

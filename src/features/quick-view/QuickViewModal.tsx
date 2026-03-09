@@ -1,3 +1,9 @@
+/**
+ * Modal de vista rápida de producto.
+ * Se abre sobre cualquier página (overlay), muestra imagen, precio,
+ * selector de cantidad y botones de "agregar al carrito" y "ver detalle".
+ * Cierra con Escape, click en overlay o botón X.
+ */
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'

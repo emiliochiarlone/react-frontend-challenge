@@ -1,3 +1,8 @@
+/**
+ * Página de detalle de producto.
+ * Muestra imagen ampliada, info, selector de cantidad, tabs de descripción
+ * y reviews, y un slider de productos relacionados.
+ */
 import { useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'

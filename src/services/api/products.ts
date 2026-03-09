@@ -1,3 +1,14 @@
+/**
+ * Servicio de productos — consume FakeStore API y enriquece datos.
+ *
+ * Arquitectura de cache en 2 capas:
+ * 1. In-memory (productsCache): descarga 20 productos una sola vez,
+ *    los enriquece con stock/descuento y los cachea en variable de módulo.
+ * 2. TanStack Query: evita refetches mientras staleTime esté vigente.
+ *
+ * Todas las operaciones (filtro, búsqueda, paginación, relacionados)
+ * trabajan sobre el array en memoria sin requests adicionales.
+ */
 import type { Product } from '@/types'
 import { translateProduct, translateCategory } from './translations'
 
@@ -129,6 +140,12 @@ export async function getProductById(id: number): Promise<Product | null> {
   return allProducts.find((p) => p.id === id) ?? null
 }
 
+/**
+ * Devuelve productos relacionados usando un algoritmo de 3 niveles:
+ * 1. Misma categoría (por rating descendente)
+ * 2. Palabras en común en el título (sin stop-words)
+ * 3. Relleno aleatorio si falta alcanzar `maxResults`
+ */
 export async function getRelatedProducts(productId: number, maxResults = 6): Promise<Product[]> {
   const allProducts = await fetchAllProducts()
   const product = allProducts.find((p) => p.id === productId)

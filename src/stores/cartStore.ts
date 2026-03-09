@@ -1,3 +1,8 @@
+/**
+ * Store global del carrito de compras.
+ * Persiste en localStorage ('fakestore-cart') para sobrevivir al refresh.
+ * Usa selectores granulares de Zustand para evitar re-renders innecesarios.
+ */
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import type { CartItem, Product } from '@/types'

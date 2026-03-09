@@ -1,3 +1,13 @@
+/**
+ * Página de catálogo con filtros avanzados e infinite scroll.
+ *
+ * Funcionalidades:
+ * - Filtro por categoría, rango de precio (slider dual), solo ofertas
+ * - Ordenamiento por precio, rating, nombre
+ * - Infinite scroll via useInfiniteQuery + IntersectionObserver
+ * - Todos los filtros sincronizados bidireccionalmente con URL (query params)
+ * - Botón compartir con Web Share API (fallback a clipboard)
+ */
 import { useState, useCallback, useMemo, useRef } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { useInfiniteQuery, useQuery } from '@tanstack/react-query'

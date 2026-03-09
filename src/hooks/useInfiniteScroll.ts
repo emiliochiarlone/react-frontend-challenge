@@ -1,5 +1,10 @@
 import { useCallback, useEffect, useRef } from 'react'
 
+/**
+ * Hook para infinite scroll usando IntersectionObserver.
+ * Devuelve un ref para el elemento sentinel; cuando se hace visible,
+ * dispara `onIntersect`. Usa rootMargin de 200px para pre-fetch.
+ */
 export function useInfiniteScroll(onIntersect: () => void, enabled: boolean) {
   const sentinelRef = useRef<HTMLDivElement | null>(null)
 

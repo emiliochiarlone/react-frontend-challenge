@@ -11,10 +11,10 @@ describe('products service', () => {
     })
 
     it('filters by category', async () => {
-      const result = await getProducts({ category: 'Gaming', limit: 100 })
+      const result = await getProducts({ category: 'Electrónica', limit: 100 })
       expect(result.products.length).toBeGreaterThan(0)
       result.products.forEach((p) => {
-        expect(p.category).toBe('Gaming')
+        expect(p.category).toBe('Electrónica')
       })
     })
 

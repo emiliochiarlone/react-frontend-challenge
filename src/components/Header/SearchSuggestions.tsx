@@ -1,3 +1,8 @@
+/**
+ * Dropdown de sugerencias de búsqueda.
+ * Muestra hasta 6 resultados con miniatura y precio (debounce 500ms, mín 2 chars).
+ * Soporta navegación con teclado (↑/↓/Enter/Escape).
+ */
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
@@ -51,29 +56,29 @@ export function SearchSuggestions({ query, onSelect, onSearch, visible }: Search
     staleTime: 60_000,
   })
 
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (!visible || suggestions.length === 0) return
-
-    if (e.key === 'ArrowDown') {
-      e.preventDefault()
-      setActiveIndex((i) => (i < suggestions.length - 1 ? i + 1 : 0))
-    } else if (e.key === 'ArrowUp') {
-      e.preventDefault()
-      setActiveIndex((i) => (i > 0 ? i - 1 : suggestions.length - 1))
-    } else if (e.key === 'Enter' && activeIndex >= 0) {
-      e.preventDefault()
-      const product = suggestions[activeIndex]
-      onSelect(product.id)
-      navigate(`/product/${product.id}`)
-    } else if (e.key === 'Escape') {
-      setActiveIndex(-1)
-    }
-  }
-
   useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!visible || suggestions.length === 0) return
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault()
+        setActiveIndex((i) => (i < suggestions.length - 1 ? i + 1 : 0))
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault()
+        setActiveIndex((i) => (i > 0 ? i - 1 : suggestions.length - 1))
+      } else if (e.key === 'Enter' && activeIndex >= 0) {
+        e.preventDefault()
+        const product = suggestions[activeIndex]
+        onSelect(product.id)
+        navigate(`/product/${product.id}`)
+      } else if (e.key === 'Escape') {
+        setActiveIndex(-1)
+      }
+    }
+
     document.addEventListener('keydown', handleKeyDown)
     return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [handleKeyDown])
+  }, [visible, suggestions, activeIndex, onSelect, navigate, setActiveIndex])
 
   // Scroll al elemento activo
   useEffect(() => {

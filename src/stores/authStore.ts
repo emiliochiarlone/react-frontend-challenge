@@ -1,3 +1,7 @@
+/**
+ * Store global de autenticación.
+ * Persiste en localStorage ('fakestore-auth') para mantener la sesión activa.
+ */
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import type { User } from '@/types'

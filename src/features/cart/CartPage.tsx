@@ -1,3 +1,8 @@
+/**
+ * Página del carrito de compras.
+ * Muestra items con controles de cantidad (+/-/eliminar),
+ * resumen con subtotal/envío/total y botón de checkout simulado.
+ */
 import { Link } from 'react-router-dom'
 import { useCartStore } from '@/stores'
 import { ShimmerImage } from '@/components/ShimmerImage'

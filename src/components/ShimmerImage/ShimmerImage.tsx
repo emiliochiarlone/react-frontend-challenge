@@ -1,3 +1,9 @@
+/**
+ * Drop-in replacement para <img> con shimmer loading.
+ * Muestra un skeleton animado (gradiente pulsante de 1.4s)
+ * y hace fade-in de 250ms al cargar la imagen.
+ * Extiende ImgHTMLAttributes para aceptar todas las props nativas.
+ */
 import { useState, useCallback } from 'react'
 import styles from './ShimmerImage.module.scss'
 

@@ -1,3 +1,8 @@
+/**
+ * Página de inicio — muestra banner carousel, categorías destacadas,
+ * productos mejor puntuados y mejores descuentos.
+ * Usa TanStack Query para paralelizar las 3 consultas.
+ */
 import { Link } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { getProducts, getCategories } from '@/services/api'
