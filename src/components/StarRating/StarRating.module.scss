@@ -1,0 +1,34 @@
+@use '@/styles/variables' as *;
+
+.stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+
+  &__star {
+    color: $border;
+    font-size: 1rem;
+    line-height: 1;
+
+    &--filled {
+      color: $warning;
+    }
+
+    &--half {
+      color: $warning;
+    }
+  }
+
+  &__value {
+    margin-left: $spacing-xs;
+    font-size: $font-size-sm;
+    font-weight: 600;
+    color: $text-primary;
+  }
+
+  &__count {
+    margin-left: $spacing-xs;
+    font-size: $font-size-xs;
+    color: $text-secondary;
+  }
+}

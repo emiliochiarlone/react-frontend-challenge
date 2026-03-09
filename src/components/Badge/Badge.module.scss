@@ -1,0 +1,31 @@
+@use '@/styles/variables' as *;
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px $spacing-sm;
+  border-radius: $radius-full;
+  font-size: $font-size-xs;
+  font-weight: 700;
+  line-height: 1.4;
+
+  &--discount {
+    background: $danger;
+    color: $text-light;
+  }
+
+  &--stock {
+    background: $success;
+    color: $text-light;
+  }
+
+  &--low-stock {
+    background: $warning;
+    color: $text-primary;
+  }
+
+  &--out {
+    background: $text-secondary;
+    color: $text-light;
+  }
+}

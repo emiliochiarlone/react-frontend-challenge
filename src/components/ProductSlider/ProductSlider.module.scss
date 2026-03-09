@@ -1,0 +1,74 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.slider {
+  &__header {
+    @include flex-between;
+    margin-bottom: $spacing-lg;
+
+    h2 {
+      @include heading($font-size-xl);
+    }
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+  }
+
+  &__nav {
+    display: flex;
+    gap: $spacing-xs;
+
+    button {
+      @include flex-center;
+      width: 36px;
+      height: 36px;
+      border: 1px solid $border;
+      border-radius: $radius-full;
+      font-size: 1.25rem;
+      color: $text-secondary;
+      background: $surface;
+      cursor: pointer;
+      transition: all $transition-fast;
+
+      &:hover:not(:disabled) {
+        border-color: $primary;
+        color: $primary;
+        background: rgba($primary, 0.04);
+      }
+
+      &:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &__track {
+    display: flex;
+    gap: $spacing-md;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: $spacing-sm;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__slide {
+    min-width: 220px;
+    max-width: 220px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+
+    @include tablet-up {
+      min-width: 240px;
+      max-width: 240px;
+    }
+  }
+}
