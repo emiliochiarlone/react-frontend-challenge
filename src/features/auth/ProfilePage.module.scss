@@ -1,0 +1,82 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.profile {
+  @include container;
+  padding-top: $spacing-xl;
+  padding-bottom: $spacing-2xl;
+
+  &__header {
+    margin-bottom: $spacing-xl;
+
+    h1 {
+      @include heading($font-size-2xl);
+      margin-bottom: $spacing-xs;
+    }
+
+    p {
+      color: $text-secondary;
+      font-size: $font-size-sm;
+    }
+  }
+
+  &__card {
+    @include card;
+    padding: $spacing-xl;
+    max-width: 600px;
+  }
+
+  &__avatar {
+    @include flex-center;
+    width: 80px;
+    height: 80px;
+    border-radius: $radius-full;
+    background: linear-gradient(135deg, $primary, $primary-light);
+    color: $text-light;
+    font-size: $font-size-3xl;
+    font-weight: 700;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+
+    label {
+      font-size: $font-size-xs;
+      color: $text-secondary;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    span {
+      font-size: $font-size-base;
+      font-weight: 500;
+    }
+  }
+
+  &__actions {
+    margin-top: $spacing-xl;
+    padding-top: $spacing-lg;
+    border-top: 1px solid $border;
+  }
+
+  &__logoutBtn {
+    @include btn-base;
+    color: $danger;
+    border: 1px solid $danger;
+    border-radius: $radius-md;
+
+    &:hover {
+      background: $danger;
+      color: $text-light;
+    }
+  }
+}
