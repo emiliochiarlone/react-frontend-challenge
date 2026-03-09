@@ -1,0 +1,130 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.home {
+  &__carouselWrapper {
+    padding-top: calc($header-height + $spacing-xl);
+    padding-bottom: $spacing-md;
+
+    @include tablet-up {
+      @include container;
+    }
+  }
+
+  &__section {
+    @include container;
+    padding-top: $spacing-2xl;
+    padding-bottom: $spacing-2xl;
+  }
+
+  &__sectionHeader {
+    @include flex-between;
+    margin-bottom: $spacing-xl;
+
+    h2 {
+      @include heading;
+    }
+
+    a {
+      color: $accent;
+      font-weight: 600;
+      font-size: $font-size-sm;
+      transition: opacity $transition-fast;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &__categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-md;
+
+    @include tablet-up {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include desktop {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__categoryCard {
+    @include card;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 16/10;
+    display: flex;
+    align-items: flex-end;
+
+    img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform $transition-base;
+    }
+
+    &:hover img {
+      transform: scale(1.08);
+    }
+
+    span {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      padding: $spacing-sm $spacing-md;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+      color: $text-light;
+      font-weight: 600;
+      font-size: $font-size-sm;
+      text-transform: capitalize;
+    }
+  }
+
+  &__products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-md;
+
+    @include tablet-up {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include desktop {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__banner {
+    background: linear-gradient(135deg, $accent-dark 0%, $accent 100%);
+    color: $text-light;
+    padding: $spacing-2xl $spacing-md;
+    text-align: center;
+    margin: $spacing-xl 0;
+    border-radius: $radius-lg;
+
+    h2 {
+      font-size: $font-size-2xl;
+      margin-bottom: $spacing-sm;
+    }
+
+    p {
+      opacity: 0.9;
+      margin-bottom: $spacing-lg;
+    }
+  }
+
+  &__bannerBtn {
+    @include btn-base;
+    background: $text-light;
+    color: $accent-dark;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
