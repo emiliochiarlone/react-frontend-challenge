@@ -1,0 +1,232 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.detail {
+  @include container;
+  padding-top: $spacing-xl;
+  padding-bottom: $spacing-2xl;
+
+  &__back {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    color: $text-secondary;
+    font-size: $font-size-sm;
+    margin-bottom: $spacing-lg;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  &__main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-2xl;
+    margin-bottom: $spacing-2xl;
+
+    @include tablet-up {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__image {
+    aspect-ratio: 1;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    background: $surface;
+    box-shadow: $shadow-sm;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+
+  &__category {
+    font-size: $font-size-xs;
+    color: $text-secondary;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  &__title {
+    @include heading($font-size-2xl);
+
+    @include desktop {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+
+  &__price {
+    display: flex;
+    align-items: baseline;
+    gap: $spacing-md;
+
+    &Current {
+      font-size: $font-size-3xl;
+      font-weight: 800;
+      color: $text-primary;
+    }
+
+    &Original {
+      font-size: $font-size-xl;
+      color: $text-secondary;
+      text-decoration: line-through;
+    }
+
+    &Discount {
+      font-size: $font-size-sm;
+      font-weight: 700;
+      color: $success;
+    }
+  }
+
+  &__description {
+    color: $text-secondary;
+    line-height: 1.7;
+    font-size: $font-size-base;
+  }
+
+  &__stock {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    font-size: $font-size-sm;
+  }
+
+  &__actions {
+    display: flex;
+    gap: $spacing-md;
+    margin-top: $spacing-md;
+  }
+
+  &__quantity {
+    display: flex;
+    align-items: center;
+    border: 1px solid $border;
+    border-radius: $radius-md;
+
+    button {
+      @include flex-center;
+      width: 40px;
+      height: 40px;
+      font-size: $font-size-lg;
+      color: $text-primary;
+      transition: background $transition-fast;
+
+      &:hover {
+        background: $bg;
+      }
+
+      &:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+    }
+
+    span {
+      @include flex-center;
+      width: 48px;
+      height: 40px;
+      font-weight: 600;
+      border-left: 1px solid $border;
+      border-right: 1px solid $border;
+    }
+  }
+
+  &__addBtn {
+    @include btn-primary;
+    flex: 1;
+    padding: $spacing-sm $spacing-xl;
+    font-size: $font-size-base;
+  }
+
+  // Reviews
+  &__reviews {
+    margin-top: $spacing-2xl;
+    padding-top: $spacing-xl;
+    border-top: 1px solid $border;
+
+    h2 {
+      @include heading($font-size-xl);
+      margin-bottom: $spacing-lg;
+    }
+  }
+
+  &__reviewList {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+
+  &__review {
+    @include card;
+    padding: $spacing-md;
+
+    &Header {
+      @include flex-between;
+      margin-bottom: $spacing-sm;
+    }
+
+    &Author {
+      font-weight: 600;
+      font-size: $font-size-sm;
+    }
+
+    &Date {
+      font-size: $font-size-xs;
+      color: $text-secondary;
+    }
+
+    &Comment {
+      color: $text-secondary;
+      font-size: $font-size-sm;
+      line-height: 1.6;
+      margin-top: $spacing-sm;
+    }
+  }
+
+  &__noReviews {
+    color: $text-secondary;
+    font-size: $font-size-sm;
+    padding: $spacing-lg;
+    text-align: center;
+    background: $bg;
+    border-radius: $radius-md;
+  }
+
+  // Related — Slider
+  &__related {
+    margin-top: $spacing-2xl;
+    padding-top: $spacing-xl;
+    border-top: 1px solid $border;
+  }
+
+  &__notFound {
+    text-align: center;
+    padding: $spacing-3xl;
+
+    h2 {
+      margin-bottom: $spacing-md;
+    }
+  }
+
+  &__homeBtn {
+    @include btn-primary;
+  }
+}
