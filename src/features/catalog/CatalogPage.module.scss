@@ -1,0 +1,278 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.catalog {
+  @include container;
+  padding-top: $spacing-xl;
+  padding-bottom: $spacing-2xl;
+
+  &__header {
+    margin-bottom: $spacing-xl;
+
+    h1 {
+      @include heading($font-size-2xl);
+      margin-bottom: $spacing-xs;
+    }
+
+    p {
+      color: $text-secondary;
+      font-size: $font-size-sm;
+    }
+  }
+
+  &__headerTop {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: $spacing-md;
+  }
+
+  &__shareBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    padding: $spacing-xs $spacing-md;
+    border: 1px solid $border;
+    border-radius: $radius-md;
+    background: $surface;
+    color: $text-secondary;
+    font-size: $font-size-sm;
+    cursor: pointer;
+    transition: all $transition-fast;
+    white-space: nowrap;
+    flex-shrink: 0;
+
+    &:hover {
+      border-color: $primary;
+      color: $primary;
+    }
+  }
+
+  &__dealsBtn {
+    border-color: $accent;
+    color: $accent;
+
+    &:hover {
+      background: rgba($accent, 0.08);
+    }
+  }
+
+  &__filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-xl;
+    padding-bottom: $spacing-md;
+    border-bottom: 1px solid $border;
+  }
+
+  &__filterBtn {
+    padding: $spacing-xs $spacing-md;
+    border: 1px solid $border;
+    border-radius: $radius-full;
+    font-size: $font-size-xs;
+    font-weight: 500;
+    color: $text-secondary;
+    background: $surface;
+    cursor: pointer;
+    transition: all $transition-fast;
+    text-transform: capitalize;
+    white-space: nowrap;
+
+    &:hover {
+      border-color: $primary;
+      color: $primary;
+    }
+
+    &--active {
+      background: $primary;
+      color: $text-light;
+      border-color: $primary;
+
+      &:hover {
+        background: $primary-dark;
+      }
+    }
+  }
+
+  &__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__priceFilter {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+    min-width: 220px;
+
+    @include tablet-up {
+      min-width: 280px;
+    }
+  }
+
+  &__priceLabel {
+    font-size: $font-size-sm;
+    font-weight: 600;
+    color: $text-primary;
+  }
+
+  &__priceValues {
+    font-size: $font-size-xs;
+    color: $text-secondary;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__rangeWrap {
+    position: relative;
+    height: 6px;
+    background: $border;
+    border-radius: 3px;
+    margin-top: $spacing-sm;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__rangeTrackFill {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: $accent;
+    border-radius: 3px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &__rangeInput {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 6px;
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    pointer-events: none;
+    z-index: 2;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: $surface;
+      border: 2px solid $accent;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+      pointer-events: auto;
+      transition:
+        box-shadow 0.15s,
+        transform 0.15s;
+
+      &:hover {
+        box-shadow: 0 0 0 4px rgba($accent, 0.15);
+        transform: scale(1.1);
+      }
+
+      &:active {
+        box-shadow: 0 0 0 6px rgba($accent, 0.2);
+        transform: scale(1.15);
+      }
+    }
+
+    &::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: $surface;
+      border: 2px solid $accent;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+      pointer-events: auto;
+      transition:
+        box-shadow 0.15s,
+        transform 0.15s;
+
+      &:hover {
+        box-shadow: 0 0 0 4px rgba($accent, 0.15);
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__sort {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+
+    label {
+      font-size: $font-size-sm;
+      color: $text-secondary;
+      white-space: nowrap;
+    }
+
+    select {
+      padding: $spacing-xs $spacing-md;
+      border: 1px solid $border;
+      border-radius: $radius-md;
+      font-size: $font-size-sm;
+      background: $surface;
+      cursor: pointer;
+      outline: none;
+
+      &:focus {
+        border-color: $primary;
+      }
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-md;
+
+    @include tablet-up {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include desktop {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__sentinel {
+    grid-column: 1 / -1;
+    padding: $spacing-lg;
+    text-align: center;
+  }
+
+  &__empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: $spacing-3xl;
+    color: $text-secondary;
+
+    h3 {
+      font-size: $font-size-xl;
+      margin-bottom: $spacing-sm;
+    }
+
+    p {
+      font-size: $font-size-sm;
+    }
+  }
+
+  &__end {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: $spacing-lg;
+    color: $text-secondary;
+    font-size: $font-size-sm;
+  }
+}
